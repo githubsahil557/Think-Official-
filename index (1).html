@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thinkOfficial. | Vision & Creation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Diastema&family=Lil+Grotesk:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lil Grotesk', sans-serif;
+            background: radial-gradient(circle at 50% 0%, #2a1010 0%, #0a0a0a 60%, #050505 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #ffffff;
+            font-family: 'Lil Grotesk', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #FD5F07;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FD5F07, #DB2301);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 5rem;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            background: linear-gradient(135deg, #100000, #FD5F07, #DB2301);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Forum', serif;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: #d1d5db;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            letter-spacing: 0.01em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 2px solid #FD5F07;
+            background: transparent;
+            color: #FD5F07;
+            text-decoration: none;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FD5F07, #DB2301);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            color: white;
+            border-color: #DB2301;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.6;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 4rem;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+            font-family: 'Forum', serif;
+        }
+
+        .section-subtitle {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-family: 'Diastema', serif;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-family: 'Forum', serif;
+        }
+
+        .about-text p {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .values-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .value-item {
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            border-color: #DB2301;
+            border-left-color: #FD5F07;
+            box-shadow: 0 10px 30px rgba(253, 95, 7, 0.15);
+            transform: translateX(8px);
+        }
+
+        .value-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            font-family: 'Diastema', serif;
+        }
+
+        .value-item p {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .blog-card:hover {
+            border-color: #DB2301;
+            border-top-color: #FD5F07;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(253, 95, 7, 0.2);
+        }
+
+        .blog-date {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #ffffff;
+            font-family: 'Forum', serif;
+        }
+
+        .blog-card p {
+            color: #d1d5db;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: auto;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .project-item:hover {
+            border-color: #DB2301;
+            border-left-color: #FD5F07;
+            box-shadow: 0 15px 35px rgba(253, 95, 7, 0.15);
+            transform: translateX(8px);
+        }
+
+        .project-item.alt {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .project-item.alt .project-content {
+            order: 2;
+        }
+
+        .project-item.alt .project-visual {
+            order: 1;
+        }
+
+        .project-visual {
+            height: 300px;
+            background: linear-gradient(135deg, #FD5F07 0%, #DB2301 50%, #910B00 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .project-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            font-family: 'Forum', serif;
+        }
+
+        .project-content p {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid #FD5F07;
+            font-size: 0.75rem;
+            color: #FD5F07;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(253, 95, 7, 0.05);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #FD5F07, #DB2301);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .tag:hover::before {
+            left: 0;
+        }
+
+        .tag:hover {
+            background: #FD5F07;
+            color: white;
+            border-color: #DB2301;
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: #DB2301;
+            border-top-color: #FD5F07;
+            box-shadow: 0 10px 25px rgba(253, 95, 7, 0.15);
+            transform: scale(1.05) translateY(-4px);
+        }
+
+        .resource-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #FD5F07;
+        }
+
+        .resource-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            font-family: 'Diastema', serif;
+        }
+
+        .resource-card p {
+            font-size: 0.875rem;
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .contact-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .contact-links a:hover {
+            color: #FD5F07;
+            border-bottom-color: #FD5F07;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #100000, #910B00);
+            color: #f3f4f6;
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: #f3f4f6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #d1d5db;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .about-grid,
+            .project-item,
+            .project-item.alt {
+                grid-template-columns: 1fr;
+            }
+
+            .project-item.alt .project-content,
+            .project-item.alt .project-visual {
+                order: unset;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero {
+                margin-top: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(253, 95, 7, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(253, 95, 7, 0.6);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-5deg) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0deg) translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(253, 95, 7, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(253, 95, 7, 0.8), 0 0 30px rgba(219, 35, 1, 0.6);
+            }
+        }
+
+        /* Cursor Follower */
+        .cursor-follower {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            box-shadow: 0 0 12px rgba(16, 0, 0, 0.8), inset 0 0 8px rgba(16, 0, 0, 0.4);
+        }
+
+        .cursor-follower-inner {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            box-shadow: 0 0 10px #FFD700;
+        }
+
+        /* Trail Particle Animation */
+        .trail-particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: #FD5F07;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            box-shadow: 0 0 8px rgba(253, 95, 7, 0.8);
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        /* Enhanced Hover Effects */
+        .nav-links a {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: radial-gradient(circle, #FD5F07 0%, rgba(253, 95, 7, 0) 70%);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .nav-links a:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Interactive Elements Hover */
+        .cta-button {
+            position: relative;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 2px;
+            padding: 2px;
+            background: linear-gradient(90deg, #FD5F07, #DB2301, #FD5F07);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::after {
+            opacity: 1;
+            animation: borderGlow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% {
+                box-shadow: 0 0 5px #FD5F07;
+            }
+            50% {
+                box-shadow: 0 0 15px #FD5F07, 0 0 25px rgba(253, 95, 7, 0.5);
+            }
+        }
+
+        /* Card Hover Particle Effect */
+        .blog-card, .value-item, .project-item, .resource-card {
+            position: relative;
+        }
+
+        .blog-card::after, 
+        .value-item::after, 
+        .project-item::after, 
+        .resource-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(253, 95, 7, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .blog-card:hover::after, 
+        .value-item:hover::after, 
+        .project-item:hover::after, 
+        .resource-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Intersection Observer Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animations for cards */
+        .blog-card {
+            animation: fadeInUp 0.8s ease backwards;
+        }
+
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .value-item {
+            animation: slideInFromLeft 0.6s ease backwards;
+        }
+
+        .value-item:nth-child(1) { animation-delay: 0.1s; }
+        .value-item:nth-child(2) { animation-delay: 0.2s; }
+        .value-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .project-item {
+            animation: fadeInUp 0.8s ease backwards;
+        }
+
+        .project-item:nth-child(1) { animation-delay: 0.1s; }
+        .project-item:nth-child(2) { animation-delay: 0.3s; }
+        .project-item:nth-child(3) { animation-delay: 0.5s; }
+
+        .resource-card {
+            animation: scaleIn 0.6s ease backwards;
+        }
+
+        .resource-card:nth-child(1) { animation-delay: 0.1s; }
+        .resource-card:nth-child(2) { animation-delay: 0.2s; }
+        .resource-card:nth-child(3) { animation-delay: 0.3s; }
+        .resource-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">thinkOfficial.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Thinking</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Building the Future</h1>
+            <p class="subtitle">Thinking deeply. Creating intentionally. Growing continuously.</p>
+            <a href="#about" class="cta-button">Explore My Journey</a>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-subtitle">About Me</div>
+        <h2 class="section-title fade-in">My Story & Vision</h2>
+        
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <h3>Who I Am</h3>
+                <p>I'm a thinker, builder, and creator passionate about understanding how things work and building meaningful products that solve real problems. My approach is rooted in deep thinking, intentional action, and continuous learning.</p>
+                <p>I believe in the power of compound growth, systems thinking, and the intersection of creativity and execution.</p>
+            </div>
+
+            <div class="values-list fade-in">
+                <div class="value-item">
+                    <h4>Vision</h4>
+                    <p>To create products and ideas that shape how people think and work</p>
+                </div>
+                <div class="value-item">
+                    <h4>Philosophy</h4>
+                    <p>Quality over quantity. Depth over breadth. Impact over visibility.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Approach</h4>
+                    <p>Systems thinking, first-principles reasoning, and continuous experimentation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="section-subtitle">Deep Thinking</div>
+        <h2 class="section-title fade-in">Latest Essays & Insights</h2>
+        
+        <div class="blog-grid">
+            <article class="blog-card fade-in">
+                <div class="blog-date">January 2025</div>
+                <h3>The Future of Intentional Technology</h3>
+                <p>An exploration of how we can build technology that enhances human capability rather than replacing human judgment. What does intentionality mean in the age of AI?</p>
+                <div class="blog-meta">
+                    <span>8 min read</span>
+                    <span>Philosophy</span>
+                </div>
+            </article>
+
+            <article class="blog-card fade-in">
+                <div class="blog-date">December 2024</div>
+                <h3>Building in Public: Lessons from 100 Days</h3>
+                <p>What I learned from documenting my creative journey publicly. How transparency shapes your work, your community, and your accountability to yourself.</p>
+                <div class="blog-meta">
+                    <span>12 min read</span>
+                    <span>Learning</span>
+                </div>
+            </article>
+
+            <article class="blog-card fade-in">
+                <div class="blog-date">November 2024</div>
+                <h3>Systems Over Goals: A Framework for Long-term Growth</h3>
+                <p>Why chasing goals often fails, and how building systems creates compounding growth. A practical framework for designing your life and work.</p>
+                <div class="blog-meta">
+                    <span>10 min read</span>
+                    <span>Strategy</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-subtitle">My Work</div>
+        <h2 class="section-title fade-in">Projects & Experiments</h2>
+        
+        <div class="projects-grid">
+            <div class="project-item fade-in">
+                <div class="project-visual">Design / Product</div>
+                <div class="project-content">
+                    <h3>Project Alpha</h3>
+                    <p>A digital product that helps creators build their personal brand and audience. Combining design thinking with data-driven insights to create meaningful connections between creators and their audience.</p>
+                    <div class="project-tags">
+                        <span class="tag">Product Design</span>
+                        <span class="tag">React</span>
+                        <span class="tag">2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item alt fade-in">
+                <div class="project-visual">Research / Exploration</div>
+                <div class="project-content">
+                    <h3>Research Initiative</h3>
+                    <p>Deep research into how human behavior shapes technology adoption. Published findings across three key areas: decision-making, trust-building, and network effects.</p>
+                    <div class="project-tags">
+                        <span class="tag">Research</span>
+                        <span class="tag">Psychology</span>
+                        <span class="tag">2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item fade-in">
+                <div class="project-visual">Writing / Content</div>
+                <div class="project-content">
+                    <h3>The Weekly Essay Series</h3>
+                    <p>A curated collection of long-form essays exploring the intersection of technology, philosophy, and human flourishing. Published bi-weekly with deep research and original thinking.</p>
+                    <div class="project-tags">
+                        <span class="tag">Writing</span>
+                        <span class="tag">Philosophy</span>
+                        <span class="tag">Ongoing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <div class="section-subtitle">Resources</div>
+        <h2 class="section-title fade-in">Books, Tools & Recommendations</h2>
+        
+        <div class="resources-grid">
+            <div class="resource-card fade-in">
+                <div class="resource-icon"><i class="fas fa-book"></i></div>
+                <h4>Recommended Books</h4>
+                <p>A curated collection of books that shaped my thinking and approach to building and creating.</p>
+            </div>
+
+            <div class="resource-card fade-in">
+                <div class="resource-icon"><i class="fas fa-tools"></i></div>
+                <h4>Tools & Software</h4>
+                <p>The tools I use daily for design, thinking, building, and staying organized.</p>
+            </div>
+
+            <div class="resource-card fade-in">
+                <div class="resource-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h4>Learning Paths</h4>
+                <p>Resources and frameworks I've created for anyone interested in learning what I'm learning.</p>
+            </div>
+
+            <div class="resource-card fade-in">
+                <div class="resource-icon"><i class="fas fa-link"></i></div>
+                <h4>Useful Links</h4>
+                <p>My favorite websites, projects, and people that inspire and influence my thinking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-subtitle">Let's Connect</div>
+        <h2 class="section-title fade-in">Get in Touch</h2>
+        
+        <div class="contact-content fade-in">
+            <p>I'm always interested in meaningful conversations, collaborations, and connections with people thinking about the future. Feel free to reach out.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://twitter.com" target="_blank">Twitter / X</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 thinkOfficial. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Colophon</a></p>
+    </footer>
+
+    <script>
+        // Smooth Cursor with Trail Animation
+        const cursorFollower = document.createElement('div');
+        cursorFollower.className = 'cursor-follower';
+        document.body.appendChild(cursorFollower);
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let followerX = 0;
+        let followerY = 0;
+        let trailParticles = [];
+
+        const easeAmount = 0.15; // Smooth easing factor
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            // Create trail particle every few frames
+            if (Math.random() > 0.7) {
+                createTrailParticle(mouseX, mouseY);
+            }
+
+            // Update mouse position for card glow effects
+            const cards = document.querySelectorAll('.blog-card, .value-item, .project-item, .resource-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                    const percentX = (x / rect.width) * 100;
+                    const percentY = (y / rect.height) * 100;
+                    card.style.setProperty('--mouse-x', percentX + '%');
+                    card.style.setProperty('--mouse-y', percentY + '%');
+                }
+            });
+        });
+
+        // Create trail particle that fades out smoothly
+        function createTrailParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'trail-particle';
+            particle.style.left = (x - 3) + 'px';
+            particle.style.top = (y - 3) + 'px';
+            particle.style.opacity = '1';
+            document.body.appendChild(particle);
+
+            let opacity = 1;
+            const startTime = Date.now();
+            const duration = 600; // Fade duration in ms
+
+            const fadeFrame = () => {
+                const elapsed = Date.now() - startTime;
+                const progress = elapsed / duration;
+
+                if (progress >= 1) {
+                    particle.remove();
+                } else {
+                    opacity = 1 - progress;
+                    particle.style.opacity = opacity;
+                    requestAnimationFrame(fadeFrame);
+                }
+            };
+
+            requestAnimationFrame(fadeFrame);
+        }
+
+        // Animation loop for smooth easing
+        function animateCursor() {
+            // Smooth easing for outer cursor follower
+            followerX += (mouseX - followerX) * easeAmount;
+            followerY += (mouseY - followerY) * easeAmount;
+
+            cursorFollower.style.left = (followerX - 4) + 'px';
+            cursorFollower.style.top = (followerY - 4) + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        // Hide cursor follower when leaving window
+        document.addEventListener('mouseleave', () => {
+            cursorFollower.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursorFollower.style.opacity = '1';
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(18, 18, 18, 0.9)';
+                navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.5)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Parallax effect for hero section
+        const hero = document.querySelector('.hero');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY < window.innerHeight) {
+                hero.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+            }
+        });
+
+        // Animate hero content on load
+        window.addEventListener('load', () => {
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.animation = 'fadeInUp 1s ease forwards';
+        });
+
+        // Add click animation to buttons
+        document.querySelectorAll('.cta-button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s ease-out';
+                ripple.style.pointerEvents = 'none';
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation keyframe dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enhance card animations on hover
+        const cards = document.querySelectorAll('.blog-card, .value-item, .project-item, .resource-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transition = 'all 0.4s ease';
+            });
+        });
+
+        // Scroll animation for section titles
+        const sectionTitles = document.querySelectorAll('.section-title');
+        const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    titleObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sectionTitles.forEach(title => titleObserver.observe(title));
+
+        // Enhanced hover animations for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .cta-button, .tag');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', function() {
+                this.style.textShadow = '0 0 10px rgba(253, 95, 7, 0.4)';
+            });
+            el.addEventListener('mouseleave', function() {
+                this.style.textShadow = 'none';
+            });
+        });
+
+        // Add glow effect to elements on hover
+        const glowElements = document.querySelectorAll('.nav-links a, .contact-links a');
+        glowElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                el.style.backgroundImage = `radial-gradient(circle at ${x}px ${y}px, rgba(253, 95, 7, 0.1) 0%, transparent 50%)`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.backgroundImage = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
